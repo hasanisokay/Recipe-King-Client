@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     const { user } = useContext(AuthContext)
-    console.log(user);
+
+    const handleLogOut = ()=>{
+
+    }
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-300">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -22,20 +25,26 @@ const Header = () => {
                             <li><Link to='/blog'>Blog</Link></li>
                         </ul>
                     </div>
-                    <a className="normal-case text-xl text-gray-800 btn btn-ghost">Recipe King</a>
+                    <Link to="/" className="normal-case text-xl text-gray-800 btn-warning btn btn-ghost">Recipe King</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><Link to='/blog'>Blog</Link></li>
                         <li>
                             <Link to="/">
                                 Home
                             </Link>
                         </li>
+                        <li><Link to='/blog'>Blog</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="login" className="btn btn-warning">Login</Link>
+                    {user ? <div>
+                        <div className="w-10 rounded-full">
+                            {/* <img src={user?.photoUrl} title={user?.name}/> */}
+                        </div>
+                        <Link onClick={handleLogOut} className="btn btn-warning">Logout</Link>
+                    </div> :<Link to="login" className="btn btn-warning">Login</Link>
+                    }
                 </div>
             </div>
         </div>
