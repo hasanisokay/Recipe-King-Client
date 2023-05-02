@@ -1,21 +1,56 @@
-import React, { createContext, useState } from 'react';
-import {getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import React, { createContext, useEffect, useState } from 'react';
+import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateProfile, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "firebase/auth"
 import app from '../firebase/firebase.config';
 export const AuthContext = createContext(null)
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState("")
     const auth = getAuth(app)
+    const [loading, setLoading] = useState(true)
+
+
+
+
+
+
+
+    const resetPassword =(email)=>{
+        return sendPasswordResetEmail(auth, email)
+    }
     const register = (email,password)=>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
-
-    const login =(email,password)=>{
-        
+    const setProfile = (displayName,photoURL)=>{
+        return updateProfile(auth.currentUser,{
+            displayName,photoURL})
     }
+    const withGoogle = ()=>{
+        const provider = new GoogleAuthProvider()
+        return signInWithPopup(auth, provider)
+    }
+    const withGihub = ()=>{
+        const provider = new GithubAuthProvider()
+        return signInWithPopup(auth, provider)
+    }
+    const login =(email,password)=>{
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+    const logOut = () => {
+        setLoading(true);
+        signOut(auth);    
+    }
+    
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
+            setUser(currentUser)
+            setLoading(false)
+        })
+        return ()=> unsubscribe()
+    },[])
 
-
-    const authInfo = {user,setUser, login, register}
+    const authInfo = {user,setUser,loading, withGoogle, withGihub ,login, register, setProfile, logOut, resetPassword}
 
     return (
         <AuthContext.Provider value={authInfo}>

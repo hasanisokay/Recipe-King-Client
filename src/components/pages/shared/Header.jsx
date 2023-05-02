@@ -1,12 +1,22 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const handleLogOut = ()=>{
-
+        logOut()
+        .then()
+        .catcg(error=>{
+            const message = error.message.slice(10)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${message}`,
+              })
+        })
     }
     return (
         <div>
@@ -38,9 +48,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {user ? <div>
-                        <div className="w-10 rounded-full">
-                            {/* <img src={user?.photoUrl} title={user?.name}/> */}
+                    {user ? <div className='flex gap-2 items-center'>
+                        <div className="h-10 w-10 rounded-full">
+                            <img src={user?.photoURL} className='rounded-full h-10 w-10' title={user?.displayName}/>
                         </div>
                         <Link onClick={handleLogOut} className="btn btn-warning">Logout</Link>
                     </div> :<Link to="login" className="btn btn-warning">Login</Link>

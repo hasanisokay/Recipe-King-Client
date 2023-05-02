@@ -6,7 +6,8 @@ import Register from '../pages/register/Register';
 import Homepage from '../pages/front-homepage/Homepage';
 import Blog from '../pages/blog/Blog';
 import ContactUs from '../pages/contact/ContactUs';
-
+import ForgetPassword from '../pages/forget-password/ForgetPassword.jsx';
+import Tos from '../pages/tos/Tos.jsx';
 export const router = createBrowserRouter([
     {
         path:"/",
@@ -32,7 +33,14 @@ export const router = createBrowserRouter([
                 path: "register",
                 element:<Register></Register>
             },
-            
+            {
+                path:"forget-password",
+                element: <ForgetPassword></ForgetPassword>
+            },
+            {
+                path:"tos",
+                element:<Tos></Tos>
+            }
         ]
     },
  
