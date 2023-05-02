@@ -92,7 +92,6 @@ const Login = () => {
     return (
 
         <div>
-
             <div className="card-body shadow-xl mx-auto lg:w-1/2 my-4">
                 <form onSubmit={handleLogin} className=''>
                     <label className="label">

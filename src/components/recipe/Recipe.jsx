@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const Recipe = ({ recipe }) => {
-    const { name, image, description, ingredients, rating } = recipe
+    const { name, image, description, ingredients, rating, method } = recipe
     const handleFavourite =()=>{
         console.log("added fav");
         setBtnFavouriteDisable(true)
@@ -16,14 +16,15 @@ const Recipe = ({ recipe }) => {
     const [btnFavouriteDisable, setBtnFavouriteDisable] = useState(false)
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card lg:w-5/6 mx-auto h-full bg-base-100 shadow-xl">
                 <figure className='h-72'><img src={image} className='object-fill w-full h-full' alt="recipe image" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p>{description}</p>
-                    <div> <span>Ingredients:</span> {ingredients.slice(0,6).map(ingredient => <p>{ingredient}</p> )}</div>
+                    <div className='my-1'> <span className='font-semibold'>Ingredients:</span> {ingredients.slice(0,6).map((ingredient, index) => <p key={index}>{ingredient}</p> )}</div>
+                    <p><span className='font-semibold'>Method:</span> {method}</p>
                     <div className="card-actions">
-                        <p>Rating: {rating}</p>
+                        <p><span className='font-semibold'>Rating</span> {rating}</p>
                         <button className='btn' disabled={btnFavouriteDisable} onClick={handleFavourite}>Favourite</button>
                     </div>
                 </div>

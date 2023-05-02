@@ -22,7 +22,7 @@ const ChefDetails = () => {
                 </div>
             </div>
             <p className='font-bold text-xl text-center my-6 '>His Recipes...</p>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mx-4'>
+            <div className='grid lg:grid-cols-2 gap-4 mx-4'>
                 {
                     recipes.map((recipe, index) => <Recipe key={index} recipe={recipe} ></Recipe> )
                 }

@@ -10,10 +10,12 @@ import ForgetPassword from '../pages/forget-password/ForgetPassword.jsx';
 import Tos from '../pages/tos/Tos.jsx';
 import ChefDetails from '../chefDetails/ChefDetails.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
+import ErrorPage from '../errorpage/ErrorPage.jsx';
 export const router = createBrowserRouter([
     {
         path:"/",
         element: <Home></Home>,
+        errorElement: <ErrorPage></ErrorPage>,
         children:[
             {
                 path:"/",
@@ -40,12 +42,8 @@ export const router = createBrowserRouter([
                 element: <ForgetPassword></ForgetPassword>
             },
             {
-                path:":id",
+                path:"/:id",
                 element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>
-            },
-            {
-                path:"tos",
-                element:<Tos></Tos>
             }
         ]
     },

@@ -3,7 +3,7 @@ import React from 'react';
 const TopViewed = () => {
     return (
         <div>
-            <h1 className='text-2xl font-semibold text-center'>Top Viewed in this month</h1>
+            <h1 className='text-2xl font-semibold text-center mt-16 mb-4'>Top Viewed in this month</h1>
             <div className='grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 mx-4 gap-2'> 
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <figure className='h-96'><img className='' src="https://images.pexels.com/photos/5966431/pexels-photo-5966431.jpeg" alt="Shoes" /></figure>

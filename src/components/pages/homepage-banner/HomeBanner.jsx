@@ -7,8 +7,8 @@ const HomeBanner = () => {
                 <img className='h-full w-full rounded' src='https://images.pexels.com/photos/4784055/pexels-photo-4784055.jpeg' alt="" />
             </div>
             <div className='text-center'>
-                <h1 className='text-6xl text-center'>Need <span className='text-red-900'>recipes</span><span className='text-red-600'>?</span> </h1>
-                <p className='text-2xl'>Search among thousands of recipes from professional sheffs all over the world!</p>
+                <h1 className='text-6xl text-center my-4'>Need <span className='text-red-900'>recipes</span><span className='text-red-600'>?</span> </h1>
+                <p className='text-2xl'>Search for Bangladeshi food recipe among thousands of recipes from professional!</p>
             </div>
             
         </div>

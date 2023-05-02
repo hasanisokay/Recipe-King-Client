@@ -13,7 +13,7 @@ const Homepage = () => {
         { <HomeBanner></HomeBanner>}
         <h1 className='text-2xl font-semibold text-center'>See Our Cheffs and their recipes</h1>
         </div>
-            <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2 grid-cols-1 my-4 mx-4 '>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-4 grid-cols-1 my-4 mx-4 '>
                 {
                     chefData.map(chef => <SingleChef
                         key={chef.id}
@@ -22,10 +22,10 @@ const Homepage = () => {
                 }
             </div>
             {
-                <TopViewed></TopViewed>
+                <Features></Features>
             }
             {
-                <Features></Features>
+                <TopViewed></TopViewed>
             }
         </>
     );

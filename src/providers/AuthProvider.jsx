@@ -9,7 +9,6 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [chefData, setChefData] = useState([])
 
-
     const resetPassword =(email)=>{
         return sendPasswordResetEmail(auth, email)
     }
@@ -38,6 +37,7 @@ const AuthProvider = ({children}) => {
         signOut(auth);    
     }
     useEffect(() => {
+        setLoading(true)
         fetch("http://localhost:5000/chefData")
             .then(res => res.json())
             .then(data => setChefData(data))
@@ -46,6 +46,7 @@ const AuthProvider = ({children}) => {
     }, [])
 
     useEffect(()=>{
+        setLoading(true)
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser)
             setLoading(false)

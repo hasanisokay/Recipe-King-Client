@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Header = () => {
@@ -28,11 +28,11 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li>
-                                <Link to="/">
+                                <NavLink to="/">
                                     Home
-                                </Link>
+                                </NavLink>
                             </li>
-                            <li><Link to='/blog'>Blog</Link></li>
+                            <li><NavLink to='/blog'>Blog</NavLink></li>
                         </ul>
                     </div>
                     <Link to="/" className="normal-case text-xl text-gray-800 btn-warning btn btn-ghost">Recipe King</Link>
@@ -40,11 +40,11 @@ const Header = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <li>
-                            <Link to="/">
+                            <NavLink to="/">
                                 Home
-                            </Link>
+                            </NavLink>
                         </li>
-                        <li><Link to='/blog'>Blog</Link></li>
+                        <li><NavLink to='/blog'>Blog</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
