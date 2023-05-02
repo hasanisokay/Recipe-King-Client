@@ -49,7 +49,7 @@ const Login = () => {
         console.log(email, password);
         login(email, password)
             .then(result => {
-                navigate(location?.state?.pathname || "/")
+                navigate(location?.state?.pathname || "/", {replace:true})
             })
             .catch(error => {
                 const message = error.message.slice(10)
@@ -63,7 +63,7 @@ const Login = () => {
     }
     const handleGithubLogin = () =>{
         withGihub()
-        .then(result=>navigate(location?.state?.pathname || "/"))
+        .then(result=>navigate(location?.state?.pathname || "/", {replace:true}))
         .catch(error => {
             const message = error.message.slice(10)
             Swal.fire({
@@ -76,7 +76,7 @@ const Login = () => {
     }
     const handleGoogleLogin=()=>{
         withGoogle()
-        .then(result=>navigate(location?.state?.pathname || "/")
+        .then(result=>navigate(location?.state?.pathname || "/", {replace:true})
         )
         .catch(error => {
             const message = error.message.slice(10)

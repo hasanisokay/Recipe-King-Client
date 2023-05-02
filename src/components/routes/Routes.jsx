@@ -8,6 +8,8 @@ import Blog from '../pages/blog/Blog';
 import ContactUs from '../pages/contact/ContactUs';
 import ForgetPassword from '../pages/forget-password/ForgetPassword.jsx';
 import Tos from '../pages/tos/Tos.jsx';
+import ChefDetails from '../chefDetails/ChefDetails.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
 export const router = createBrowserRouter([
     {
         path:"/",
@@ -36,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path:"forget-password",
                 element: <ForgetPassword></ForgetPassword>
+            },
+            {
+                path:":id",
+                element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>
             },
             {
                 path:"tos",

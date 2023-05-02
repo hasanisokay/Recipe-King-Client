@@ -7,11 +7,7 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState("")
     const auth = getAuth(app)
     const [loading, setLoading] = useState(true)
-
-
-
-
-
+    const [chefData, setChefData] = useState([])
 
 
     const resetPassword =(email)=>{
@@ -41,7 +37,14 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         signOut(auth);    
     }
-    
+    useEffect(() => {
+        fetch("http://localhost:5000/chefData")
+            .then(res => res.json())
+            .then(data => setChefData(data))
+            .catch(error => console.log(error))
+            setLoading(false)
+    }, [])
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser)
@@ -50,7 +53,7 @@ const AuthProvider = ({children}) => {
         return ()=> unsubscribe()
     },[])
 
-    const authInfo = {user,setUser,loading, withGoogle, withGihub ,login, register, setProfile, logOut, resetPassword}
+    const authInfo = {user,setUser,loading, withGoogle, chefData, withGihub ,login, register, setProfile, logOut, resetPassword}
 
     return (
         <AuthContext.Provider value={authInfo}>
