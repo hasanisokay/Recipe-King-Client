@@ -9,7 +9,7 @@ const SingleChef = ({ chef }) => {
     const {chefPicture, chefName, yearsOfExperience, numberOfRecipes, likes, id}=chef
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card lg:w-96 w-full mx-auto bg-base-100 shadow-xl">
             {/*  */}
                 <figure className='h-72 w-full'>
                 <LazyLoadImage  src={chefPicture} className='object-fill'  

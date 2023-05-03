@@ -44,7 +44,6 @@ const PDFFile = () => {
     <Document>
       <Page style={styles.body}>
         <Text style={styles.header} fixed>Pdf Created by Recipe King</Text>
-        <Image style={styles.image} src="https://images.unsplash.com/photo-1546015720-b8b30df5aa27" />
           <Text style={styles.title}>
             <Text>Difference between controlled and uncontrolled components.</Text>
           </Text>
