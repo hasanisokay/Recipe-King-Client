@@ -116,7 +116,7 @@ const Register = () => {
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input type="text" placeholder="password" className="input input-bordered w-5/6" required name='password'
+                    <input type="password" placeholder="password" className="input input-bordered w-5/6" required name='password'
                         value={password} onChange={handlePassword}
                     />
                     <p className='text-error'>{passwordError}</p>

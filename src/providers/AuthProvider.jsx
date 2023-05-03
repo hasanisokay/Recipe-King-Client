@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateProfile, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "firebase/auth"
+import {getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, updateProfile, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, sendEmailVerification } from "firebase/auth"
 import app from '../firebase/firebase.config';
 export const AuthContext = createContext(null)
 
@@ -9,6 +9,10 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [chefData, setChefData] = useState([])
 
+
+    const varifyEmail =()=>{
+        return sendEmailVerification(auth.currentUser)
+    }
     const resetPassword =(email)=>{
         return sendPasswordResetEmail(auth, email)
     }
@@ -38,7 +42,7 @@ const AuthProvider = ({children}) => {
     }
     useEffect(() => {
         setLoading(true)
-        fetch("http://localhost:5000/chefData")
+        fetch("https://recipe-king-hasanisokay.vercel.app/chefData")
             .then(res => res.json())
             .then(data => setChefData(data))
             .catch(error => console.log(error))
@@ -54,7 +58,7 @@ const AuthProvider = ({children}) => {
         return ()=> unsubscribe()
     },[])
 
-    const authInfo = {user,setUser,loading, withGoogle, chefData, withGihub ,login, register, setProfile, logOut, resetPassword}
+    const authInfo = {user,setUser,loading, withGoogle, chefData, withGihub ,login, varifyEmail, register, setProfile, logOut, resetPassword}
 
     return (
         <AuthContext.Provider value={authInfo}>

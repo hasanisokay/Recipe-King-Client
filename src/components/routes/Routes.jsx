@@ -11,6 +11,7 @@ import Tos from '../pages/tos/Tos.jsx';
 import ChefDetails from '../chefDetails/ChefDetails.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import ErrorPage from '../errorpage/ErrorPage.jsx';
+import UserDetails from '../pages/userDetails/UserDetails.jsx';
 export const router = createBrowserRouter([
     {
         path:"/",
@@ -42,8 +43,16 @@ export const router = createBrowserRouter([
                 element: <ForgetPassword></ForgetPassword>
             },
             {
+                path: "reset-password",
+                element: <ForgetPassword></ForgetPassword>
+            },
+            {
                 path:"/:id",
                 element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>
+            },
+            {
+                path:"/userdetails",
+                element: <PrivateRoute><UserDetails></UserDetails></PrivateRoute>
             }
         ]
     },

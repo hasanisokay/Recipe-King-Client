@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Header = () => {
+    const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
+    const goToProfile = ()=>{
+        navigate("/userdetails")
+    }
 
     const handleLogOut = ()=>{
         logOut()
@@ -45,11 +49,12 @@ const Header = () => {
                             </NavLink>
                         </li>
                         <li><NavLink to='/blog'>Blog</NavLink></li>
+                        <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {user ? <div className='flex gap-2 items-center'>
-                        <div className="h-10 w-10 rounded-full">
+                        <div className="h-10 w-10 rounded-full cursor-pointer" onClick={goToProfile}>
                             <img src={user?.photoURL} className='rounded-full h-10 w-10' title={user?.displayName}/>
                         </div>
                         <Link onClick={handleLogOut} className="btn btn-warning">Logout</Link>

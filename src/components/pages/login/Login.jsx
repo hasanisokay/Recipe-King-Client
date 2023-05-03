@@ -102,7 +102,7 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input type="text" value={password} onChange={handlePassword} placeholder="password" className="input input-bordered w-5/6" required name='password' />
+                    <input type="password" value={password} onChange={handlePassword} placeholder="password" className="input input-bordered w-5/6" required name='password' />
                     <p className='text-error'>{passwordError}</p>
                     <label className="label">
                         <Link to="/forget-password" className="label-text-alt link link-hover">Forgot password?</Link>
