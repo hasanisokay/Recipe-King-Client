@@ -37,6 +37,7 @@ const Header = () => {
                                 </NavLink>
                             </li>
                             <li><NavLink to='/blog'>Blog</NavLink></li>
+                            <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
                         </ul>
                     </div>
                     <Link to="/" className="normal-case text-xl text-gray-800 btn-warning btn btn-ghost">Recipe King</Link>

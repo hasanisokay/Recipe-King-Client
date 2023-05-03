@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Swal from 'sweetalert2';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import blurry from "../../../public/blurry.svg"
+import blurry from "../../../src/assets/blurry.svg"
 
 const Recipe = ({ recipe }) => {
     const { name, image, description, ingredients, rating, method } = recipe

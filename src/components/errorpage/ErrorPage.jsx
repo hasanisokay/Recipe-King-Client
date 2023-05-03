@@ -1,7 +1,7 @@
 import { FaceFrownIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
-import errorImage from "../../../public/error404.webp"
+import errorImage from "../../../src/assets/error404.webp"
 const ErrorPage = () => {
     const {error, status} = useRouteError()
     return (

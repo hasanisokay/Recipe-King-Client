@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import blurry from "../../../public/blurry.svg"
+import blurry from "../../../src/assets/blurry.svg"
 
 const SingleChef = ({ chef }) => {
 
