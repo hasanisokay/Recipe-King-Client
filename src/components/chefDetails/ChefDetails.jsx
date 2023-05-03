@@ -4,7 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import Recipe from '../recipe/Recipe';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
+import blurry from "../../../public/blurry.svg"
 const ChefDetails = () => {
     const { id } = useParams();
     const { chefData } = useContext(AuthContext)
@@ -14,7 +14,7 @@ const ChefDetails = () => {
         <div>
             <div className="card lg:card-side bg-base-100 shadow-xl mx-4 my-4">
                 <figure className='lg:w-5/12 h-72'><LazyLoadImage width={400} height={500} 
-                effect='blur' delayTime={6} placeholderSrc='https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_960_720.jpg' delayMethod='throttle'
+                effect='blur' delayTime={6} placeholderSrc={blurry} delayMethod='throttle'
                 src={chefPicture} alt="Chef Picture" /></figure>
                 <div className="card-body">
                     <h2 className="card-title font-bold ">Chef: {chefName}</h2>

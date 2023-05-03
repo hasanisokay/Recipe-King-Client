@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import blurry from "../../../public/blurry.svg"
 
 const SingleChef = ({ chef }) => {
 
@@ -12,7 +13,7 @@ const SingleChef = ({ chef }) => {
             {/*  */}
                 <figure className='h-72 w-full'>
                 <LazyLoadImage  src={chefPicture} className='object-fill'  
-                effect='blur' delayTime={6} placeholderSrc='https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_960_720.jpg' delayMethod='throttle'
+                effect='blur' delayTime={6} placeholderSrc={blurry} delayMethod='throttle'
                 
                 loading='lazy' alt='chef photo' />
                 </figure>

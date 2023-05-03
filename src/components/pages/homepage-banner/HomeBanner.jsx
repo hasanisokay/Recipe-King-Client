@@ -1,6 +1,7 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import blurry from "../../../../public/blurry.svg"
 
 const HomeBanner = () => {
     return (
@@ -8,7 +9,7 @@ const HomeBanner = () => {
             <div className='h-96 lg:w-4/5'>
                 <LazyLoadImage className='h-full w-full rounded'
                 
-                effect='blur' delayTime={6} placeholderSrc='https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_960_720.jpg' delayMethod='throttle'
+                effect='blur' delayTime={6} placeholderSrc={blurry} delayMethod='throttle'
                 src='https://images.pexels.com/photos/4784055/pexels-photo-4784055.jpeg' alt="" />
             </div>
             <div className='text-center'>

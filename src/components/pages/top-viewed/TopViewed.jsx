@@ -1,7 +1,7 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
+import blurry from "../../../../public/blurry.svg"
 const TopViewed = () => {
     return (
         <div>
@@ -11,7 +11,7 @@ const TopViewed = () => {
                     <figure className='h-96'>
                         <LazyLoadImage
                             height={300}
-                            effect='blur' delayTime={6} placeholderSrc='https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_960_720.jpg' delayMethod='throttle'
+                            effect='blur' delayTime={6} placeholderSrc={blurry} delayMethod='throttle'
                             src="https://images.pexels.com/photos/5966431/pexels-photo-5966431.jpeg"
                             width={400}
                         />
