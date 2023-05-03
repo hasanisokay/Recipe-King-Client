@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Swal from 'sweetalert2';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Recipe = ({ recipe }) => {
     const { name, image, description, ingredients, rating, method } = recipe
@@ -17,7 +19,10 @@ const Recipe = ({ recipe }) => {
     return (
         <div>
             <div className="card lg:w-5/6 mx-auto h-full bg-base-100 shadow-xl">
-                <figure className='h-72'><img src={image} className='object-fill w-full h-full' alt="recipe image" /></figure>
+                <figure className='h-72'><LazyLoadImage src={image} 
+                effect='blur' delayTime={6} placeholderSrc='https://cdn.pixabay.com/photo/2015/06/24/02/12/the-blurred-819388_960_720.jpg' 
+                delayMethod='throttle'
+                className='object-fill w-full h-full' alt="recipe image" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p>{description}</p>
